@@ -1,4 +1,4 @@
-![](https://github.com/hyperledger/burrow/raw/develop/docs/assets/images/burrow.png)
+![](burrow.png)
 # Hyperledger Burrow 
 > A simple application using the [Hyperledger Burrow](https://www.hyperledger.org/projects/hyperledger-burrow)
 > This application stores data in the blockchain and retrives it.
@@ -11,9 +11,9 @@ This Repository consists of **3 indevidual applications** :
 
 | Application | Folder Name | Details |
 | ------ | ------| ------ |
-| Hyperledger Burrow Server | [hyperledger-burrow](link-to-folder) | This is the Blockchain server which stores the final data |
-| Middleware Server | [monax-middleware-server](link-to-folder) | A middleware server written in ExpressJS, using [@monax/burrow](https://www.npmjs.com/package/@monax/burrow) library |
-| Angular UI | [burrow-ui](link-to-folder) | A front-end application built with [Angular](https://angular.io) version 7 |
+| Hyperledger Burrow Server | [hyperledger-burrow](hyperledger-burrow/) | This is the Blockchain server which stores the final data |
+| Middleware Server | [monax-middleware-server](monax-middleware-server/) | A middleware server written in ExpressJS, using [@monax/burrow](https://www.npmjs.com/package/@monax/burrow) library |
+| Angular UI | [burrow-ui](burrow-ui/) | A front-end application built with [Angular](https://angular.io) version 7 |
 
 # What does it do?
 > The **UI** takes some input informations (form data) and sends them to the **middleware server**.
@@ -38,6 +38,7 @@ All files that are needed is present in the *hyperledger-burrow* folder, but you
  -  See [here](https://github.com/hyperledger/burrow/blob/develop/docs/quickstart/deploy-contracts.md) to deploy contract
 
 Then run the following command:
+
 ```sh
 cd hyperledger-burrow
 sh init_burrow.sh
@@ -52,15 +53,26 @@ node index.js
 ```
 
 # UI
-> Host the contents of [burrow-ui/dist/burrow-ui](link-to-folder) on a webserver
+> Run the following commands in the terminal to build the UI Application
+
+```sh
+cd burrow-ui
+ng build --prod
+```
+
+> Now, the UI files will be generated and can be found on **burrow-ui/dist/burrow-ui** folder.
+> We need to host these files on a web server to access them.
 
 If you have [Python](https://python.org) installed:
+
  - Version 2.7+
 ```sh
 cd burrow-ui/dist/burrow-ui
 python -m SimpleHTTPServer 8080
 ```
+
  - Version 3.5+
+
 ```sh
 cd burrow-ui/dist/burrow-ui
 python -m http.server 8080
