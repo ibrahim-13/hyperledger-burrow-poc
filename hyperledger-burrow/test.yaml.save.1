@@ -1,0 +1,13 @@
+deployStorageKjobs:
+
+- name: setStorageBool
+  call:
+      destination: deployStorageK
+      function: setBool 
+      data:
+        - "true"
+
+- name: queryStorageBool
+  query-contract:
+      destination: deployStorageK
+      function: getBool

@@ -1,0 +1,13 @@
+jobs:
+
+- name: setStorageBool
+  call:
+      destination: 58D5647D044A5AA9EF553B0C8C0717F98B6BDEE2
+      function: setBool 
+      data:
+        - "true"
+
+- name: queryStorageBool
+  query-contract:
+      destination: deployStorageK
+      function: getBool

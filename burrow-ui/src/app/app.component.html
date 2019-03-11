@@ -1,0 +1,105 @@
+<!--
+Copyright (C) 2019 MD. Ibrahim Khan
+
+Project Name: Hyperledger Burrow Test Application
+Author: MD. Ibrahim Khan
+Author's Email: ib.arshad777@gmail.com
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this
+   list of conditions and the following disclaimer in the documentation and/or
+   other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of the contributors may
+   be used to endorse or promote products derived from this software without
+   specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTIONS) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side">Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Hyperledger Burrow :: Test Application</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- Other contents -->
+    <div class="main-content">
+      <mat-tab-group color="primary">
+        <mat-tab label="Store Values">
+          <br>
+          <mat-form-field>
+            Name:
+            <input [(ngModel)]="inputStorage.name" matInput placeholder="Name of the person">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            ID:
+            <input [(ngModel)]="inputStorage.id" matInput placeholder="ID of the person">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            Date of Birth:
+            <input [(ngModel)]="inputStorage.dob" matInput placeholder="Date of Birth of the person">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            Email:
+            <input [(ngModel)]="inputStorage.email" matInput placeholder="Email of the person">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            Contract Number
+            <input [(ngModel)]="inputStorage.phone" matInput placeholder="Contract Number of the person">
+          </mat-form-field>
+          <br>
+          <button mat-flat-button color="primary" (click)="storeData();">OK</button>
+          <br><label style="color: red;">{{errMessage}}</label>
+        </mat-tab>
+        <mat-tab label="View Values">
+          <br>
+          <button mat-flat-button color="primary" (click)="getData();">Get Registration Data</button>
+          <br>
+          <mat-card *ngIf="outputStorage">
+              <mat-card-header>
+                <mat-card-title>Name :: {{outputStorage.name}}</mat-card-title>
+                <mat-card-subtitle>Transaction Hash :: {{outputStorage.hash}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <h4>ID:</h4>
+                <label>{{outputStorage.id}}</label>
+                <br>
+                <h4>Date of Birth:</h4>
+                <label>{{outputStorage.dob}}</label>
+                <br>
+                <h4>Email:</h4>
+                <label>{{outputStorage.email}}</label>
+                <br>
+                <h4>Phone:</h4>
+                <label>{{outputStorage.phone}}</label>
+              </mat-card-content>
+            </mat-card>
+            <br><label style="color: red;">{{errMessage2}}</label>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>
