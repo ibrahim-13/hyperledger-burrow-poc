@@ -14,7 +14,7 @@
   "dependencies": {
     "@monax/burrow": "^0.24.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "typescript": "^3.3.3333"
   },
   "devDependencies": {
